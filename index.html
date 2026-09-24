@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==============================
+         EDIT HERE: WEBSITE TITLE
+    =============================== -->
+    <title>YOUR TEAM NAME | FTC Robotics</title>
+
+    <style>
+        /* =====================================================
+           TEAM WEBSITE — EASY EDIT AREA
+           Change these colors to change the whole website.
+        ===================================================== */
+
+        :root {
+            --blue: #1557c0;
+            --dark-blue: #0b2d66;
+            --yellow: #ffd21f;
+            --light-yellow: #fff4b8;
+            --white: #ffffff;
+            --black: #111111;
+            --gray: #f4f6fa;
+            --dark-gray: #444444;
+
+            --max-width: 1200px;
+            --round: 18px;
+        }
+
+        /* =====================================================
+           BASIC PAGE SETUP
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: auto;
+        }
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: var(--dark-blue);
+            color: white;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            width: 90%;
+            margin: auto;
+
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .bee-small {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* =====================================================
+           HERO / HOME
+        ===================================================== */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(11, 45, 102, 0.96),
+                    rgba(21, 87, 192, 0.88)
+                );
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🐝";
+            position: absolute;
+
+            right: 5%;
+            top: 10%;
+
+            font-size: 14rem;
+            opacity: 0.12;
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .yellow {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 25px;
+            border-radius: 999px;
+
+            font-weight: bold;
+
+            background: var(--yellow);
+            color: var(--black);
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: var(--dark-blue);
+        }
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+
+        section {
+            padding: 90px 0;
+            scroll-margin-top: 75px;
+        }
+
+        section:nth-child(even) {
+            background: var(--gray);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+
+            border-radius: var(--round);
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+            border-top: 5px solid var(--yellow);
+
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        /* =====================================================
+           ABOUT FTC
+        ===================================================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 350px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--yellow);
+
+            border-radius: var(--round);
+
+            font-size: 8rem;
+        }
+
+        .about-text h3 {
+            color: var(--blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* =====================================================
+           MEDIA
+        ===================================================== */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border-radius: 14px;
+            background: var(--dark-blue);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-placeholder {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* =====================================================
+           ENGINEERING NOTEBOOK
+        ===================================================== */
+
+        .notebook {
+            background: var(--dark-blue);
+            color: white;
+            border-radius: var(--round);
+            padding: 45px;
+        }
+
+        .notebook h3 {
+            color: var(--yellow);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .notebook-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .notebook-list {
+            list-style: none;
+        }
+
+        .notebook-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .notebook-list li::before {
+            content: "🐝 ";
+        }
+
+        /* =====================================================
+           SPONSORS
+        ===================================================== */
+
+        .sponsors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .sponsor {
+            min-height: 140px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border-radius: var(--round);
+
+            border: 2px solid #e5e5e5;
+
+            font-weight: bold;
+            text-align: center;
+
+            padding: 20px;
+
+            transition: 0.2s;
+        }
+
+        .sponsor:hover {
+            border-color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        /* =====================================================
+           AWARDS
+        ===================================================== */
+
+        .award {
+            text-align: center;
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .award-year {
+            display: inline-block;
+
+            background: var(--yellow);
+
+            padding: 4px 12px;
+
+            border-radius: 999px;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+        /* =====================================================
+           BLOG
+        ===================================================== */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .blog-post {
+            background: white;
+
+            border-radius: var(--round);
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .blog-image {
+            height: 180px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 4rem;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .blog-content h3 {
+            margin: 8px 0 10px;
+            color: var(--dark-blue);
+        }
+
+        /* =====================================================
+           CALL TO ACTION
+        ===================================================== */
+
+        .cta {
+            background: var(--yellow);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        .cta .button {
+            background: var(--dark-blue);
+            color: white;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.2);
+
+            text-align: center;
+
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .nav-inner {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .cards,
+            .gallery,
+            .blog-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sponsors {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid,
+            .notebook-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .cards,
+            .gallery,
+            .blog-grid,
+            .sponsors {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .notebook {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+
+         EDIT:
+         Change the team name below.
+    ====================================================== -->
+
+    <nav>
+        <div class="nav-inner">
+
+            <a href="#home" class="logo">
+                <span class="bee-small">🐝</span>
+                YOUR TEAM NAME
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About FTC</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#notebook">Notebook</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
+
+    <section id="home" class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <!-- EDIT YOUR TEAM NAME -->
+                <h1>
+                    BUILD.<br>
+                    <span class="yellow">CREATE.</span><br>
+                    COMPETE.
+                </h1>
+
+                <!-- EDIT YOUR TEAM DESCRIPTION -->
+                <p>
+                    Welcome to the home of YOUR TEAM NAME,
+                    an FIRST Tech Challenge robotics team
+                    building robots, solving problems, and
+                    having fun along the way.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="button">
+                        Meet the Team
+                    </a>
+
+                    <a href="#media" class="button button-outline">
+                        See Our Work
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT FTC
+    ====================================================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>About FTC</h2>
+
+                <p>
+                    Learn about the FIRST Tech Challenge
+                    and what our team does.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-image">
+                    🐝
+                </div>
+
+
+                <div class="about-text">
+
+                    <h3>What is FTC?</h3>
+
+                    <p>
+                        FIRST Tech Challenge is a robotics
+                        competition where teams design,
+                        build, program, and drive robots.
+                    </p>
+
+                    <p>
+                        Teams also work together on outreach,
+                        engineering documentation, fundraising,
+                        and helping their communities.
+                    </p>
+
+                    <p>
+                        Our team combines engineering,
+                        programming, creativity, teamwork,
+                        and problem solving to compete
+                        throughout the season.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MEDIA
+    ====================================================== -->
+
+    <section id="media">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Media</h2>
+
+                <p>
+                    Photos and videos from our team.
+                </p>
+
+            </div>
+
+
+            <div class="gallery">
+
+                <!--
+                    TO ADD A PHOTO:
+
+                    Replace a placeholder with:
+
+                    <img src="images/photo.jpg"
+                         alt="Description of photo">
+
+                    Put your pictures inside an "images"
+                    folder next to this HTML file.
+                -->
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        🤖
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        🐝
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        🔧
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        ⚙️
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        🏆
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        💻
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ENGINEERING NOTEBOOK
+    ====================================================== -->
+
+    <section id="notebook">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Engineering Notebook</h2>
+
+                <p>
+                    Follow our robot's journey from idea
+                    to competition.
+                </p>
+
+            </div>
+
+
+            <div class="notebook">
+
+                <div class="notebook-grid">
+
+                    <div>
+
+                        <h3>Our Engineering Process</h3>
+
+                        <p>
+                            We document our designs, testing,
+                            failures, improvements, and
+                            breakthroughs throughout the season.
+                        </p>
+
+                        <br>
+
+                        <!--
+                            EDIT THIS LINK:
+                            Replace # with the link to your
+                            actual notebook.
+                        -->
+
+                        <a href="#" class="button">
+                            Read Our Notebook
+                        </a>
+
+                    </div>
+
+
+                    <div>
+
+                        <ul class="notebook-list">
+
+                            <li>
+                                Robot Design
+                            </li>
+
+                            <li>
+                                CAD & Prototyping
+                            </li>
+
+                            <li>
+                                Programming
+                            </li>
+
+                            <li>
+                                Testing
+                            </li>
+
+                            <li>
+                                Driver Practice
+                            </li>
+
+                            <li>
+                                Competition Strategy
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SPONSORS
+    ====================================================== -->
+
+    <section id="sponsors">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Our Sponsors</h2>
+
+                <p>
+                    We are grateful to the people and
+                    businesses that support our team.
+                </p>
+
+            </div>
+
+
+            <div class="sponsors">
+
+                <!--
+                    EDIT EACH SPONSOR NAME.
+                    You can also replace the text with an image.
+
+                    Example:
+
+                    <img src="images/company-logo.png"
+                         alt="Company Name">
+                -->
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+                <div class="sponsor">
+                    SPONSOR NAME
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AWARDS
+    ====================================================== -->
+
+    <section id="awards">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Awards</h2>
+
+                <p>
+                    A record of our team's achievements.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <!-- COPY THIS CARD TO ADD MORE AWARDS -->
+
+                <div class="card award">
+
+                    <div class="award-icon">
+                        🏆
+                    </div>
+
+                    <span class="award-year">
+                        2026
+                    </span>
+
+                    <h3>
+                        Award Name
+                    </h3>
+
+                    <p>
+                        Competition or event where
+                        your team earned this award.
+                    </p>
+
+                </div>
+
+
+                <div class="card award">
+
+                    <div class="award-icon">
+                        🥇
+                    </div>
+
+                    <span class="award-year">
+                        2026
+                    </span>
+
+                    <h3>
+                        Award Name
+                    </h3>
+
+                    <p>
+                        Competition or event where
+                        your team earned this award.
+                    </p>
+
+                </div>
+
+
+                <div class="card award">
+
+                    <div class="award-icon">
+                        🐝
+                    </div>
+
+                    <span class="award-year">
+                        2025
+                    </span>
+
+                    <h3>
+                        Award Name
+                    </h3>
+
+                    <p>
+                        Competition or event where
+                        your team earned this award.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BLOG
+    ====================================================== -->
+
+    <section id="blog">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Team Blog</h2>
+
+                <p>
+                    News, updates, build logs, and stories
+                    from our team.
+                </p>
+
+            </div>
+
+
+            <div class="blog-grid">
+
+
+                <!--
+                    COPY THIS WHOLE "blog-post" BLOCK
+                    WHEN YOU WANT TO ADD A NEW POST.
+                -->
+
+                <article class="blog-post">
+
+                    <div class="blog-image">
+                        🔧
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-date">
+                            SEPTEMBER 20, 2026
+                        </span>
+
+                        <h3>
+                            Our Build Season Begins
+                        </h3>
+
+                        <p>
+                            We are back in the workshop
+                            and getting ready for another
+                            exciting season.
+                        </p>
+
+                        <br>
+
+                        <a href="#" class="button">
+                            Read More
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="blog-post">
+
+                    <div class="blog-image">
+                        🤖
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-date">
+                            SEPTEMBER 15, 2026
+                        </span>
+
+                        <h3>
+                            Meet Our New Robot
+                        </h3>
+
+                        <p>
+                            Take a look at our newest
+                            robot design and the ideas
+                            behind it.
+                        </p>
+
+                        <br>
+
+                        <a href="#" class="button">
+                            Read More
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="blog-post">
+
+                    <div class="blog-image">
+                        🐝
+                    </div>
+
+                    <div class="blog-content">
+
+                        <span class="blog-date">
+                            AUGUST 30, 2026
+                        </span>
+
+                        <h3>
+                            Welcome to the Team
+                        </h3>
+
+                        <p>
+                            Meet the students, mentors,
+                            and builders behind our team.
+                        </p>
+
+                        <br>
+
+                        <a href="#" class="button">
+                            Read More
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CALL TO ACTION
+    ====================================================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Want to Help Our Hive?
+            </h2>
+
+            <p>
+                We are always looking for mentors,
+                sponsors, volunteers, and people who
+                want to support robotics.
+            </p>
+
+            <!-- EDIT THE EMAIL ADDRESS -->
+
+            <a
+                href="mailto:yourteam@email.com"
+                class="button"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>
+                        🐝 YOUR TEAM NAME
+                    </h3>
+
+                    <p>
+                        FIRST Tech Challenge robotics team
+                        dedicated to building, learning,
+                        and helping our community.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#about">
+                                About FTC
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#media">
+                                Media
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#notebook">
+                                Notebook
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#awards">
+                                Awards
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Follow Us
+                    </h3>
+
+                    <ul>
+
+                        <!-- EDIT THESE LINKS -->
+
+                        <li>
+                            <a href="#">
+                                Instagram
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                YouTube
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                GitHub
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Email
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 YOUR TEAM NAME.
+                All rights reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
