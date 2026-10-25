@@ -621,3 +621,11 @@
                 padding: 25px;
             }
         }
+
+.team-logo {
+    display: block;
+    width: 150px;
+    height: auto;
+    max-width: 30vw;
+    object-fit: contain;
+}
