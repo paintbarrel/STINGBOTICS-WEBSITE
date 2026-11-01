@@ -140,5 +140,65 @@
 
     </footer>
 
+<script>
+const slideshow = document.getElementById("hero-slideshow");
+
+// GitHub repository information
+const username = "paintbarrel";
+const repository = "STINGBOTICS-WEBSITE";
+const folder = "images/slides";
+
+// GitHub API address
+const apiURL = `https://api.github.com/repos/${username}/${repository}/contents/${folder}`;
+
+async function loadSlideshow() {
+    try {
+        const response = await fetch(apiURL);
+
+        if (!response.ok) {
+            throw new Error("Could not retrieve slideshow images.");
+        }
+
+        const files = await response.json();
+
+        // Keep only supported image files
+        const images = files.filter(file =>
+            /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name)
+        );
+
+        if (images.length === 0) {
+            console.warn("No slideshow images found.");
+            return;
+        }
+
+        // One image is displayed at a time.
+        // Each image gets an equal portion of the animation.
+        const secondsPerImage = 6;
+        const totalDuration = images.length * secondsPerImage;
+
+        slideshow.style.setProperty(
+            "--slideshow-duration",
+            `${totalDuration}s`
+        );
+
+        images.forEach((image, index) => {
+            const slide = document.createElement("div");
+
+            slide.className = "slide";
+
+            slide.style.backgroundImage = `url("${image.download_url}")`;
+            slide.style.animationDelay = `${index * secondsPerImage}s`;
+
+            slideshow.appendChild(slide);
+        });
+
+    } catch (error) {
+        console.error("Slideshow error:", error);
+    }
+}
+
+loadSlideshow();
+</script>
+    
 </body>
 </html>
