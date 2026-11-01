@@ -715,3 +715,7 @@ footer li {
         scroll-behavior: auto;
     }
 }
+
+main > section.cta {
+    background: var(--yellow);
+}
