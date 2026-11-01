@@ -719,3 +719,44 @@ footer li {
 main > section.cta {
     background: var(--yellow);
 }
+
+
+/* =====================================================
+   AWARD IMAGES
+===================================================== */
+
+.award-image {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--gray);
+}
+
+.award-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.award:hover .award-image img {
+    transform: scale(1.04);
+}
+
+/* Make award cards align consistently */
+.award {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.award h3 {
+    margin: 8px 0;
+}
+
+.award p {
+    margin-top: 5px;
+}
+
